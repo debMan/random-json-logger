@@ -6,10 +6,10 @@ Docker image for a random json log generator, based on Alpine Linux.
 
 This image will execute a container which will generate four random log messages:
 
-* `{"@timestamp": "2018-03-02T22:33:27-06:00", "level":"ERROR", "message": "something happened in this execution."}`
-* `{"@timestamp": "2018-03-02T22:33:27-06:00", "level":"INFO", "message": "takes the value and converts it to string."}`
-* `{"@timestamp": "2018-03-02T22:33:27-06:00", "level":"WARN", "message": "variable not in use."}`
-* `{"@timestamp": "2018-03-02T22:33:27-06:00", "level":"DEBUG", "message": "first loop completed."}`
+* `{"timestamp": "2018-03-02T22:33:27", "level":"ERROR", "hostname":"my-host", "message": "something happened in this execution."}`
+* `{"timestamp": "2018-03-02T22:33:27", "level":"INFO", "hostname":"my-host", "message": "takes the value and converts it to string."}`
+* `{"timestamp": "2018-03-02T22:33:27", "level":"WARN", "hostname":"my-host","message": "variable not in use."}`
+* `{"timestamp": "2018-03-02T22:33:27", "level":"DEBUG", "hostname":"my-host", "message": "first loop completed."}`
 
 ## Why this Image?
 
@@ -28,10 +28,10 @@ To use this image you must do as follows:
 
 ```bash
 # you can use tags latest
-docker pull sikwan/random-json-logger:latest
+docker pull idebman/random-json-logger:latest
 
 # to run the image just execute
-docker run -d sikwan/random-json-logger:latest
+docker run -d idebman/random-json-logger:latest
 ```
 
 You will have now a docker container running and generating json log messages, locate it running:
@@ -56,7 +56,7 @@ but you can also build a specific version on your own, you only need:
 
 Clone this repo
 
-`git clone https://github.com/sikwan/random-json-logger.git`
+`git clone https://github.com/debMan/random-json-logger.git`
 
 Go to the folder in your terminal and type this:
 
@@ -76,4 +76,4 @@ docker build -f Dockerfile -t yourbase/yourname:version .
 ---
 For more on docker build reference to the [Documentation](https://docs.docker.com/engine/reference/commandline/build/)
 
-You can get the source from the image in the [Repository](https://github.com/sikwan/random-json-logger)
+You can get the source from the image in the [Repository](https://github.com/debMan/random-json-logger)
