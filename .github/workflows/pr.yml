@@ -26,10 +26,16 @@ jobs:
             ${{ github.repository }}
           tags: |
             ${{ github.sha }}
+      - name: Build
+        uses: docker/build-push-action@v5
+        with:
+          push: false
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
       - name: Scan for vulnerabilities
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: '${{ github.repository }}:${{ github.sha }}'
+          image-ref: ${{ steps.meta.outputs.tags }}
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
