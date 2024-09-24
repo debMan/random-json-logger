@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -eo pipefail
 
 if [[ -n  "$CUSTOM_KEY" ]] && [[ -n "$CUSTOM_VAL" ]]; then
